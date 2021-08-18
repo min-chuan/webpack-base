@@ -151,7 +151,8 @@ babel配置
 ```javascript
 # 安装
 npm i -D @babel/cli @babel/core @babel/preset-env
-npm i -S @babel/polyfill
+npm i -S core-js regenerator-runtime
+
 # babel.config.json
 {
   "presets": [
@@ -159,11 +160,17 @@ npm i -S @babel/polyfill
       "@babel/env",
       {
         "targets": "defaults",
-        "useBuiltIns": "usage"
+        "useBuiltIns": "entry",
+        "corejs": "3.6.5"
       }
     ]
   ]
 }
+
+# main.js(入口)手动导入
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+...
 ```
 webpack开发配置
 ```javascript
@@ -268,6 +275,7 @@ module.exports = merge(common, {
 ## 完善项目
 src/main.js
 ```javascript
+...
 const printMe = () => {
   console.log('hello webpack')
 }
