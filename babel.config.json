@@ -4,7 +4,8 @@
       "@babel/env",
       {
         "targets": "defaults",
-        "useBuiltIns": "usage"
+        "useBuiltIns": "entry",
+        "corejs": "3.6.5"
       }
     ]
   ]
